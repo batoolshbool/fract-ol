@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/21 18:57:14 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:31:33 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <errno.h>
 #include <math.h>
 #include <sys/time.h>
+#include "libft.h"
 
 # define WIDTH 800
 # define HEIGHT 800
