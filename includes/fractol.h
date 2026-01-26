@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 19:05:16 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:38:39 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 # define SALMON 0xFA8072
 # define BABYBLUE 0x89CFF0
 
+# define ESC 65307
+
 typedef struct s_complex
 {
 	double		re;
@@ -55,17 +57,6 @@ typedef struct s_img
 	int			endian;
 }				t_img;
 
-/*
-*img       MLX image object/struct
-*addr      pointer to pixels
-*bpp       bits per pixel (usually 32)
-*line_len  bytes per row
-*endian    byte order
-*addr
-*
-*[ R G B A ][ R G B A ][ R G B A ] ...
-*/
-
 typedef struct s_fractol
 {
 	char		*name;
@@ -75,11 +66,6 @@ typedef struct s_fractol
 	t_complex	julia;
 	t_img		img;
 }				t_fractol;
-
-/*
-    *connection     mlx_init();
-    *window         mlx_new_window();
-*/
 
 void			exit_error(char *msg);
 double			scale_map(double unscaled, double new_min, double new_max, double old_min, double old_max);
@@ -93,4 +79,5 @@ void			fract_pixel(int x, int y, t_fractol *fract, int iter);
 void			fract_init(t_fractol *fract);
 void			fract_render(t_fractol *fract);
 
+int			close_hook(int keycode, t_fractol *fract);
 #endif
