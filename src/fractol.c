@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:29:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 19:05:32 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:09:37 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd(ERROR_MESSAGE, 2);
 		return (EXIT_FAILURE);
 	}
+	ft_memset(&fract, '\0', sizeof(fract));
 	fract.name = argv[1];
 	if (ft_strncmp(argv[1], "Mandelbrot", 10) == 0)
 		fract.type = 0;
