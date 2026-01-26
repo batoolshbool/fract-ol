@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:29:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 17:21:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:05:32 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	main(int argc, char **argv)
 		fract.type = 0;
 	else if (ft_strncmp(argv[1], "Julia", 5) == 0 && argc == 4)
 	{
+		if (!is_valid_number(argv[2]) || !is_valid_number(argv[3]))
+		{
+			ft_putstr_fd("Error: Julia parameters must be numbers\n", 2);
+			return (EXIT_FAILURE);
+		}
 		fract.type = 1;
 		fract.julia.re = ft_atof(argv[2]);
 		fract.julia.im = ft_atof(argv[3]);

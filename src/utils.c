@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:41:51 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 17:19:25 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:01:01 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,33 @@ float	ft_atof(const char *s)
 	}
 	return (result * sign);
 }
+
+int	is_valid_number(char *s)
+{
+	int	i;
+	int	has_digit;
+	int	has_dot;
+
+	i = 0;
+	has_digit = 0;
+	has_dot = 0;
+
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	while (s[i])
+	{
+		if (s[i] == '.')
+		{
+			if (has_dot)
+				return (0);
+			has_dot = 1;
+		}
+		else if (ft_isdigit(s[i]))
+			has_digit = 1;
+		else
+			return (0);
+		i++;
+	}
+	return (has_digit);
+}
+
