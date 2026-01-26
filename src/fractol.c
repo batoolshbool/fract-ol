@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:29:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 19:33:07 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 19:44:55 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	fract_init(&fract);
 	fract_render(&fract);
 	mlx_hook(fract.window, 17, 0, close_hook, &fract);
-	//mlx_key_hook(fract.window, key_hook, &fract);
+	mlx_key_hook(fract.window, key_hook, &fract);
 	//mlx_mouse_hook(fract.window, mouse_hook, &fract);
 	mlx_loop(fract.connection);
 	return (0);
