@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/23 15:54:42 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/26 17:14:41 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <math.h>
 #include <sys/time.h>
 #include "libft.h"
+#include "mlx.h"
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -72,8 +73,8 @@ typedef struct s_fractol
     void    *connection;
     void    *window;
     int     type;
-t_img   img;
-
+	t_complex	julia;
+	t_img   img;
 } t_fractol;
 
 /*
@@ -83,10 +84,12 @@ t_img   img;
 
 void    exit_error(char *msg);
 double  scale_map(double unscaled, double new_min, double new_max, double old_min, double old_max);
+float	ft_atof(const char *nptr);
 
-void    data_init(t_fractol *fract);
+int	mandelbrot(int x, int y);
+int julia(int x, int y, t_fractol *fract);
+void	fract_pixel(int x, int y, t_fractol *fract, int iter);
 void    fract_init(t_fractol    *fract);
-void    fract_pixel(int x, int y, t_fractol *fract);
 void    fract_render(t_fractol *fract);
 
 #endif
