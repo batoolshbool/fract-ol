@@ -6,17 +6,21 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:06:57 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:23:02 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:40:31 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static double	atod_helper(const char *s, int sign)
+double	ft_atod(const char *s)
 {
-	double	ret;
+	double result;
+	double div;
+	int sign;
 
-	ret = 0.0;
+	result = 0.0;
+	div = 1.0;
+	sign = 1;
 	while (*s == ' ' || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '+' || *s == '-')
@@ -25,20 +29,6 @@ static double	atod_helper(const char *s, int sign)
 			sign = -1;
 		s++;
 	}
-	return (ret * sign);
-}
-
-double	ft_atod(const char *s)
-{
-	double	result;
-	double	div;
-	int		sign;
-	double	skiped;
-
-	result = 0.0;
-	div = 1.0;
-	sign = 1;
-	skiped = atod_helper(s, sign);
 	while (*s >= '0' && *s <= '9')
 		result = result * 10.0 + (*s++ - '0');
 	if (*s == '.')
@@ -50,6 +40,5 @@ double	ft_atod(const char *s)
 			result += (*s++ - '0') / div;
 		}
 	}
-	return (result);
+	return (result * sign);
 }
-
