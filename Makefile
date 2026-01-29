@@ -14,9 +14,10 @@ MLX         = $(MLX_DIR)/libmlx.a
 
 SRCS        = $(SRC_DIR)/events.c \
               $(SRC_DIR)/fractol.c \
-              $(SRC_DIR)/init_fractol.c \
               $(SRC_DIR)/render_fractol.c \
-              $(SRC_DIR)/utils.c
+              $(SRC_DIR)/utils.c \
+			  $(SRC_DIR)/mandelbrot_and_julia.c \
+			   $(SRC_DIR)/burning_ship_bonus.c
 
 OBJS        = $(SRCS:.c=.o)
 

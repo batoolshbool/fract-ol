@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 19:45:12 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 16:45:37 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,15 @@
 
 # include "libft.h"
 # include "mlx.h"
-# include <errno.h>
-# include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
-# include <sys/time.h>
 # include <unistd.h>
 
 # define WIDTH 800
 # define HEIGHT 800
 # define MAX_ITER 500
-# define ERROR_MESSAGE "Usage:\n./fractol Mandelbrot\n./fractol Julia <re> <im>\n"
 
-// Basic colors
 # define BLACK 0x000000
 # define PINK 0xFFC0CB
 # define LAVENDER 0xE6E6FA
@@ -40,7 +34,14 @@
 # define SALMON 0xFA8072
 # define BABYBLUE 0x89CFF0
 
-#define ESC_KEY 65307
+# define ESC_KEY 65307
+# define KEY_LEFT 65361
+# define KEY_UP 65362
+# define KEY_RIGHT 65363
+# define KEY_DOWN 65364
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+# define C_KEY 99
 
 typedef struct s_complex
 {
@@ -65,21 +66,27 @@ typedef struct s_fractol
 	int			type;
 	t_complex	julia;
 	t_img		img;
+	double		min_re;
+	double		max_re;
+	double		min_im;
+	double		max_im;
+	int			color_shift;
 }				t_fractol;
 
 void			exit_error(char *msg);
-double			scale_map(double unscaled, double new_min, double new_max, double old_min, double old_max);
-float			ft_atof(const char *nptr);
+double			scale_map(double unscaled, double new_min, double new_max,
+					double old_min, double old_max);
+double			ft_atod(const char *nptr);
 int				is_valid_number(char *s);
 
-
-int				mandelbrot(int x, int y);
+int				mandelbrot(int x, int y, t_fractol *fract);
 int				julia(int x, int y, t_fractol *fract);
-void			fract_pixel(int x, int y, t_fractol *fract, int iter);
-void			fract_init(t_fractol *fract);
+int				burning_ship(int x, int y, t_fractol *fract);
 void			fract_render(t_fractol *fract);
+void			fract_init(t_fractol *fract);
 
-int	close_hook(t_fractol *fract);
-int	key_hook(int keycode, t_fractol *fract);
+int				close_hook(t_fractol *fract);
+int				key_hook(int keycode, t_fractol *fract);
+int				mouse_hook(int button, int x, int y, t_fractol *fract);
 
 #endif

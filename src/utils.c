@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:41:51 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/26 19:01:01 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:00:50 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,10 @@ void	exit_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-double	scale_map(double unscaled, double new_min, double new_max,
-		double old_min, double old_max)
+double	ft_atod(const char *s)
 {
-	return ((new_max - new_min) * (unscaled - old_min) / (old_max - old_min)
-		+ new_min);
-}
-
-float	ft_atof(const char *s)
-{
-	float	result;
-	float	div;
+	double	result;
+	double	div;
 	int		sign;
 
 	result = 0.0;
@@ -36,25 +29,21 @@ float	ft_atof(const char *s)
 	sign = 1;
 	while (*s == ' ' || (*s >= 9 && *s <= 13))
 		s++;
-	if (*s == '-' || *s == '+')
+	if (*s == '+' || *s == '-')
 	{
 		if (*s == '-')
 			sign = -1;
 		s++;
 	}
 	while (*s >= '0' && *s <= '9')
-	{
-		result = result * 10 + (*s - '0');
-		s++;
-	}
+		result = result * 10.0 + (*s++ - '0');
 	if (*s == '.')
 	{
 		s++;
 		while (*s >= '0' && *s <= '9')
 		{
-			div *= 10;
-			result += (*s - '0') / div;
-			s++;
+			div *= 10.0;
+			result += (*s++ - '0') / div;
 		}
 	}
 	return (result * sign);
@@ -63,29 +52,27 @@ float	ft_atof(const char *s)
 int	is_valid_number(char *s)
 {
 	int	i;
-	int	has_digit;
-	int	has_dot;
+	int	digit;
+	int	dot;
 
 	i = 0;
-	has_digit = 0;
-	has_dot = 0;
-
+	digit = 0;
+	dot = 0;
 	if (s[i] == '+' || s[i] == '-')
 		i++;
 	while (s[i])
 	{
 		if (s[i] == '.')
 		{
-			if (has_dot)
+			if (dot)
 				return (0);
-			has_dot = 1;
+			dot = 1;
 		}
 		else if (ft_isdigit(s[i]))
-			has_digit = 1;
+			digit = 1;
 		else
 			return (0);
 		i++;
 	}
-	return (has_digit);
+	return (digit);
 }
-
