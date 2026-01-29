@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:23:23 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:59:40 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void			fract_init(t_fractol *fract);
 int				close_hook(t_fractol *fract);
 int				key_hook(int keycode, t_fractol *fract);
 int				mouse_hook(int button, int x, int y, t_fractol *fract);
+void			handle_color(int keycode, t_fractol *fract);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:29:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:38:14 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:53:58 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ int	main(int argc, char **argv)
 		fract.type = 0;
 	else if (ft_strncmp(argv[1], "Julia", 6) == 0 && argc == 4)
 	{
-		printf("before\n\nre = %s \n im = %s", (argv[2]), (argv[3]));
 		if (!is_valid_number(argv[2]) || !is_valid_number(argv[3]))
 			error_msg(2);
 		fract.type = 1;
 		fract.julia.re = ft_atod(argv[2]);
 		fract.julia.im = ft_atod(argv[3]);
-		printf("re = %f \n im = %f", ft_atod(argv[2]), ft_atod(argv[3]));
 	}
 	else if (ft_strncmp(argv[1], "Burning_Ship", 13) == 0)
 		fract.type = 2;

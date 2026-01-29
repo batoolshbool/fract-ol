@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:32:49 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:23:19 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:59:29 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,54 +22,39 @@ int	close_hook(t_fractol *fract)
 	return (0);
 }
 
+static void	apply_move(t_fractol *fract, double dx, double dy)
+{
+	fract->min_re += dx;
+	fract->max_re += dx;
+	fract->min_im += dy;
+	fract->max_im += dy;
+}
+
 static void	move_view(int keycode, t_fractol *fract)
 {
 	double	re_range;
 	double	im_range;
 	double	step;
 
-		re_range = fract->max_re - fract->min_re;
+	re_range = fract->max_re - fract->min_re;
 	im_range = fract->max_im - fract->min_im;
 	step = 0.1;
 	if (keycode == KEY_LEFT)
-	{
-		fract->min_re -= re_range * step;
-		fract->max_re -= re_range * step;
-	}
+		apply_move(fract, -re_range * step, 0);
 	else if (keycode == KEY_RIGHT)
-	{
-		fract->min_re += re_range * step;
-		fract->max_re += re_range * step;
-	}
+		apply_move(fract, re_range * step, 0);
 	else if (keycode == KEY_UP)
-	{
-		fract->min_im += im_range * step;
-		fract->max_im += im_range * step;
-	}
+		apply_move(fract, 0, im_range * step);
 	else if (keycode == KEY_DOWN)
-	{
-		fract->min_im -= im_range * step;
-		fract->max_im -= im_range * step;
-	}
-}
-
-static void	handle_color(int keycode, t_fractol *fract)
-{
-	if (keycode == C_KEY)
-	{
-		fract->color_shift++;
-		if (fract->color_shift >= 9)
-			fract->color_shift = 0;
-		fract_render(fract);
-	}
+		apply_move(fract, 0, -im_range * step);
 }
 
 int	key_hook(int keycode, t_fractol *fract)
 {
 	if (keycode == ESC_KEY)
 		close_hook(fract);
-	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT || keycode == KEY_UP
-		|| keycode == KEY_DOWN)
+	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT
+		|| keycode == KEY_UP || keycode == KEY_DOWN)
 	{
 		move_view(keycode, fract);
 		fract_render(fract);
