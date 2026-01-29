@@ -16,6 +16,7 @@ SRCS        = $(SRC_DIR)/events.c \
               $(SRC_DIR)/fractol.c \
               $(SRC_DIR)/render_fractol.c \
               $(SRC_DIR)/utils.c \
+			  $(SRC_DIR)/utils2.c \
 			  $(SRC_DIR)/mandelbrot_and_julia.c \
 			   $(SRC_DIR)/burning_ship_bonus.c
 

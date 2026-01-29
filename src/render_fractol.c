@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:44:11 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 16:41:55 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:04:05 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	fract_pixel(int x, int y, t_fractol *fract, int iter)
 	if (iter == MAX_ITER)
 		color = BLACK;
 	else
-		color = scale_map(iter, LAVENDER, BABYBLUE, 0, MAX_ITER);
+		color = scale_map(iter, LAVENDER, BABYBLUE, MAX_ITER);
 	ft_pixel_put(x, y, &fract->img, color);
 }
 

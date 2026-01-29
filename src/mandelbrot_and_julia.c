@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 16:41:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 16:42:20 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:16:39 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	mandelbrot(int x, int y, t_fractol *fract)
 
 	z.re = 0.0;
 	z.im = 0.0;
-	c.re = scale_map(x, fract->min_re, fract->max_re, 0, WIDTH);
-	c.im = scale_map(y, fract->max_im, fract->min_im, 0, HEIGHT);
+	c.re = scale_map(x, fract->min_re, fract->max_re, WIDTH);
+	c.im = scale_map(y, fract->max_im, fract->min_im, HEIGHT);
 	i = 0;
 	while (i < MAX_ITER)
 	{
@@ -42,8 +42,8 @@ int	julia(int x, int y, t_fractol *fract)
 	double		tmp;
 	int			i;
 
-	z.re = scale_map(x, fract->min_re, fract->max_re, 0, WIDTH);
-	z.im = scale_map(y, fract->max_im, fract->min_im, 0, HEIGHT);
+	z.re = scale_map(x, fract->min_re, fract->max_re, WIDTH);
+	z.im = scale_map(y, fract->max_im, fract->min_im, HEIGHT);
 	i = 0;
 	while (i < MAX_ITER)
 	{

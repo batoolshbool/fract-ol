@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:32:49 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 16:58:20 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:23:19 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	move_view(int keycode, t_fractol *fract)
 	double	im_range;
 	double	step;
 
-	re_range = fract->max_re - fract->min_re;
+		re_range = fract->max_re - fract->min_re;
 	im_range = fract->max_im - fract->min_im;
 	step = 0.1;
 	if (keycode == KEY_LEFT)
@@ -90,8 +90,8 @@ int	mouse_hook(int button, int x, int y, t_fractol *fract)
 		zoom = 1.1;
 	else
 		return (0);
-	mouse_re = scale_map(x, fract->min_re, fract->max_re, 0, WIDTH);
-	mouse_im = scale_map(y, fract->max_im, fract->min_im, 0, HEIGHT);
+	mouse_re = scale_map(x, fract->min_re, fract->max_re, WIDTH);
+	mouse_im = scale_map(y, fract->max_im, fract->min_im, HEIGHT);
 	fract->min_re = mouse_re + (fract->min_re - mouse_re) * zoom;
 	fract->max_re = mouse_re + (fract->max_re - mouse_re) * zoom;
 	fract->min_im = mouse_im + (fract->min_im - mouse_im) * zoom;

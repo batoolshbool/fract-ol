@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 16:45:37 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:23:23 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ typedef struct s_fractol
 }				t_fractol;
 
 void			exit_error(char *msg);
-double			scale_map(double unscaled, double new_min, double new_max,
-					double old_min, double old_max);
+double			scale_map(double unscaled, double new_min,
+					double new_max, double old_max);
 double			ft_atod(const char *nptr);
 int				is_valid_number(char *s);
 
