@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:06:57 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:58:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 18:24:47 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,4 @@ double	ft_atod(const char *s)
 	if (*s == '.')
 		result += atod_helper(++s);
 	return (result * sign);
-}
-
-void	handle_color(int keycode, t_fractol *fract)
-{
-	if (keycode == C_KEY)
-	{
-		fract->color_shift++;
-		if (fract->color_shift >= 9)
-			fract->color_shift = 0;
-		fract_render(fract);
-	}
 }

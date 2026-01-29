@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 20:29:45 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:53:58 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 18:25:06 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	data_init(t_fractol *fract, int argc, char *argv)
 	fract->max_re = 2.0;
 	fract->min_im = -2.0;
 	fract->max_im = 2.0;
-	fract->color_shift = 0;
 	fract->name = argv;
 }
 

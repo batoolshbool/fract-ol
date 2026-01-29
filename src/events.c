@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:32:49 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:59:29 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 18:24:59 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	key_hook(int keycode, t_fractol *fract)
 		move_view(keycode, fract);
 		fract_render(fract);
 	}
-	handle_color(keycode, fract);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:26:22 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 17:59:40 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 18:24:54 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 # define KEY_DOWN 65364
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-# define C_KEY 99
 
 typedef struct s_complex
 {
@@ -70,7 +69,6 @@ typedef struct s_fractol
 	double		max_re;
 	double		min_im;
 	double		max_im;
-	int			color_shift;
 }				t_fractol;
 
 void			exit_error(char *msg);
