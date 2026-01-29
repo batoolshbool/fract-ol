@@ -4,8 +4,8 @@
 
 ## Description
 
-**fractol** is a graphical project that explores the beauty of mathematical fractals through real-time rendering.  
-Using the MiniLibX graphics library, the program generates and displays famous fractals such as the **Mandelbrot** and **Julia** sets, allowing the user to navigate infinitely complex patterns through zooming, movement, and color variations.
+**fractol** is a graphical project that explores the beauty of mathematical fractals through real-time rendering.
+Using the MiniLibX graphics library, the program generates and displays famous fractals such as the **Mandelbrot**, **Julia**, and **Burning Ship** sets, allowing the user to navigate infinitely complex patterns through zooming, movement, and (optional) color variations.
 
 The goal of this project is to deepen understanding of:
 - Complex numbers and mathematical visualization
@@ -33,31 +33,53 @@ This will generate the executable:
 ```
 ./fractol
 ```
-Usage
+Usage:
 ```
-./fractol <fractal_name>
+./fractol <fractal_name> [parameters]
 ```
 Available fractals:
 
 - Mandelbrot
-- Julia
+- Julia (./fractol Julia <re> <im>)
+- Burning_Ship
 
 Example:
 ```
-./fractol mandelbrot
+./fractol Mandelbrot
+./fractol Julia 0.285 0.01
+./fractol Burning_Ship
 ```
+---
+
 Controls
 
 - Mouse scroll: Zoom in / out
 - Arrow keys: Move across the fractal
-- Mouse movement (Julia): Modify parameters
+- Mouse movement (Julia): Modify parameters dynamically
 - ESC: Exit the program
 
 ---
 
-## Resources
-- Wikipedia –  [Fractals](https://en.wikipedia.org/wiki/Fractal) and the [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set)
+### Bonus: Burning Ship Fractal
 
+The Burning Ship fractal is included as a bonus.
+
+It is rendered similarly to Mandelbrot but with absolute values applied to the real and imaginary parts at each iteration.
+
+Supports the same controls (zoom, move, exit).
+
+Provides a visually distinct “ship-like” fractal pattern.
+
+---
+
+## Resources
+- Wikipedia –  [Fractals](https://en.wikipedia.org/wiki/Fractal), [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set), and [Burning Ship fractal](https://en.wikipedia.org/wiki/Burning_Ship_fractal)
+
+- [MiniLibX man](https://harm-smits.github.io/42docs/libs/minilibx)
+
+- [this guide on Medium](https://medium.com/@leogaudin/fract-ol-creating-graphically-beautiful-fractals-6664b6b045b5)
+
+- [yt guide](https://www.youtube.com/watch?v=ANLW1zYbLcs)
 
 ## AI Usage
 AI tools were used as a learning assistant, not as an automatic code generator.
