@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:44:11 by bshbool           #+#    #+#             */
-/*   Updated: 2026/01/29 18:24:10 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/01/29 18:41:08 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int	get_iter(t_fractol *fract, int x, int y)
 		return (julia(x, y, fract));
 	return (burning_ship(x, y, fract));
 }
-
 
 void	fract_pixel(int x, int y, t_fractol *fract, int iter)
 {
